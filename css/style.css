@@ -11,6 +11,12 @@ body {
     flex-direction: column;
     height: 100vh;
 }
+
+.compras{
+    z-index: 1;
+    position: relative;
+}
+
 /* Header */
 header{
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.151);
@@ -27,6 +33,7 @@ header{
 #titulo-principal{
     font-weight: 800;
     text-transform: uppercase;
+    color: #E0B36E;
 }
 
 /* Footer */
@@ -43,6 +50,7 @@ header{
 
 .bi {
     font-size: 1.8rem;
+    color: #E0B36E;
 } 
 
 
@@ -65,7 +73,7 @@ header{
 .producto-detalle{
     max-width: 250px;
     margin: auto;
-    border: 2px solid #666;
+    border: 2px solid #E0B36E;
     border-radius: 10px;
     padding: 15px;
     display: flex;
@@ -78,7 +86,7 @@ header{
     width: 100%;
 }
 .producto-detalle:hover{
-    box-shadow: 0 0 10px #666;
+    box-shadow: 0 0 10px #E0B36E;
     scale: 1.05;
 }
 
@@ -89,6 +97,7 @@ button {
     border: unset;
     border-radius: 5px;
     padding: 5px 10px;
+    text-transform: uppercase;
 }
 
 /* CARRITO */
@@ -138,4 +147,25 @@ button {
     gap: 3rem;
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+/* DETALLES PRODUCTO */
+.producto-detalle p{
+    font-weight: 800;
+    font-size: 22px;
+    padding-bottom: 5px;
+}
+.producto-detalle h2{
+    text-transform: uppercase;
+    padding-top: 5px;
+}
+
+/* DETALLES CARRITO */
+.precio-carrito, .cantidad-carrito{
+    font-weight: 800;
+    font-size: 20px;
+}
+.titulo-carrito{
+    font-weight: 800;
+    text-transform: uppercase;
 }
