@@ -3,27 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda Online</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Sneakers Tienda Oficial</title>
+    <!-- Codigo CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Fuente -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Iconos Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Libreria -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 <body>
     <header>
-        <h1>Tienda de electrodomesticos</h1>
+        <nav class="nav">
+            <h1><span id="titulo-principal">Sneakers</span> | Tienda Oficial</h1>
+            <!-- Icono tienda -->
+            <div class="contenedor-carrito">
+                <i class="bi bi-cart carrito-icon"></i>
+                <div class="menu-compra">
+                    <div class="textos">
+                        <h3 id="imagen">Imagen</h3>
+                        <h3 id="nombre">Nombre</h3>
+                        <h3 id="precio">Precio</h3>
+                        <h3 id="cantidad">Cantidad</h3>
+                    </div>
+                    <div class="compras">
+                        <!-- JS -->
+                    </div>
+                    <div class="boton-vaciar">
+                        <button class="vaciar-carrito">Vaciar carrito</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </header>
     <main class="contenedor">
-        <div class="contenedor-productos">
+        <div class="contenedor-producto">
             <!-- JS -->
         </div>
-        <div class="contenedor-carrito">
-            <h2>Carrito de compras</h2>
-            <ul class="lista-carrito">
-
-            </ul>
-        </div>
     </main>
-    <script src="app.js"></script>
+    <footer class="footer">
+        <h2>By Valentin Fernandez</h2>
+        <p>© 2024</p>
+    </footer>
+    <!-- Libreria -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
