@@ -115,7 +115,6 @@ function leerProducto(item){
     }else {
         articulosCarrito = [...articulosCarrito, carrito]
     }
-    console.log(articulosCarrito)
     carritoHTML()
 }
 
@@ -169,6 +168,10 @@ contenedor.addEventListener('click', (evento) => {
         onClick: function(){}
       }).showToast();
 })
+
+// Sumar todos los productos
+
+
 
 // Hacer click al vaciar el carrito
 vaciarCarrito.addEventListener('click', () => {
