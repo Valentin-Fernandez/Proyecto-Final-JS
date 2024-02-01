@@ -140,7 +140,7 @@ vaciarCarrito.addEventListener('click', () => {
 // Cuando recargo la pagina que el carrito no este vacio en funcion del LocalStorage
 window.addEventListener("DOMContentLoaded", () => {
     // Fetch
-    fetch('../productos.json')
+    fetch('js/productos.json')
         .then((respuesta) => {
             return respuesta.json()
         })
