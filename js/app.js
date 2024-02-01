@@ -1,76 +1,21 @@
-/* ARRAY */
-
-productos = [
-    {
-        id: 1,
-        titulo: 'Yezzy',
-        imagen:'img/Yezzy1.webp',
-        precio: 250
-    },
-    {
-        id: 2,
-        titulo: 'Yezzy',
-        imagen:'img/Yezzy2.webp',
-        precio: 250
-    },
-    {
-        id: 3,
-        titulo: 'Jordan',
-        imagen:'img/Jordan1.webp',
-        precio: 300
-    },
-    {
-        id: 4,
-        titulo: 'Jordan',
-        imagen:'img/Jordan2.webp',
-        precio: 300
-    },
-    {
-        id: 5,
-        titulo: 'Yezzy',
-        imagen:'img/Yezzy3.webp',
-        precio: 250
-    },
-    {
-        id: 6,
-        titulo: 'Yezzy',
-        imagen:'img/Yezzy4.webp',
-        precio: 250
-    },
-    {
-        id: 7,
-        titulo: 'Jordan',
-        imagen:'img/Jordan3.webp',
-        precio: 300
-    },
-    {
-        id: 8,
-        titulo: 'Jordan',
-        imagen:'img/Jordan4.webp',
-        precio: 300
-    },
-]
-
 /* CARGA DE PRODUCTOS AL HTML */
 
 const contenedorproductos = document.querySelector('.contenedor-producto')
 
-function cargar_productos() {
-    productos.forEach(producto => {
+function cargar_productos(data) {
+    data.forEach(producto => {
         const div = document.createElement('div');
         div.classList.add('producto-detalle')
-        div.innerHTML = `
+        div.innerHTML += `
             <img src="${producto.imagen}" alt="" class="producto-img">
             <h2>${producto.titulo}</h2>
             <p>$${producto.precio}</p>
             <button id="${producto.id}" class="boton-agregar">Agregar</button>
         `
         contenedorproductos.append(div)
-
     })
 }
 
-cargar_productos()
 
 // -------------------------------------------------------------------
 // Carrito
@@ -144,7 +89,6 @@ function limpiarCarrito() {
 }
 
 // Guardar en LocalStorage
-
 function guardarStorage(){
     localStorage.setItem("carrito", JSON.stringify(articulosCarrito))
 }
@@ -152,7 +96,7 @@ function guardarStorage(){
 // Hacer click al agregar producto
 contenedor.addEventListener('click', (evento) => {
     agregarProducto(evento)
-    // Libreria
+    // Toastify Libreria
     Toastify({
         text: "Articulo agregado",
         duration: 3000,
@@ -168,9 +112,6 @@ contenedor.addEventListener('click', (evento) => {
         onClick: function(){}
       }).showToast();
 })
-
-// Sumar todos los productos
-
 
 
 // Hacer click al vaciar el carrito
@@ -198,6 +139,24 @@ vaciarCarrito.addEventListener('click', () => {
 
 // Cuando recargo la pagina que el carrito no este vacio en funcion del LocalStorage
 window.addEventListener("DOMContentLoaded", () => {
+    // Fetch
+    fetch('../data/productos.json')
+        .then((respuesta) => {
+            return respuesta.json()
+        })
+        .then((datos) => {
+            cargar_productos(datos)
+        })
+        .catch( () => {
+            // Sweet Alert Libreria
+            Swal.fire({
+                title: 'Error!',
+                text: 'Los productos no fueron cargados con exito',
+                icon: 'error',
+                confirmButtonText: 'Aceptar'
+              })
+        })
+
     articulosCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
     carritoHTML();
 });
